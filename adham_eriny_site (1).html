@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adham and Eriny</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* Base Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #000000;  /* Black Background */
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header Styles */
+        header {
+            padding: 50px;
+            font-family: 'Playfair Display', serif;  /* Elegant font for header */
+            color: #FF66B2;  /* Light Pink for header */
+        }
+
+        h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        p {
+            font-size: 1.8em;
+        }
+
+        /* Countdown Timer */
+        #countdown {
+            margin-top: 30px;
+            font-size: 1.8em;
+            font-family: 'Poppins', sans-serif;
+            color: white;
+        }
+
+        #timer {
+            font-size: 3.5em;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #FF66B2;  /* Light Pink color for the timer */
+        }
+
+        /* Song Section */
+        #song {
+            margin-top: 40px;
+        }
+
+        #song iframe {
+            border: none;
+            width: 80%;
+            height: 400px;
+        }
+
+        /* Footer Styles */
+        footer {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            padding: 10px;
+            background-color: #FF3399; /* Darker Pink */
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            font-size: 1.2em;
+        }
+
+        /* Elegant Text Shadow */
+        h1, h2, p {
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Media Queries for Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+            p {
+                font-size: 1.4em;
+            }
+            #timer {
+                font-size: 2.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Adham & Eriny</h1>
+        <p>Together Since February 14, 2024 ❤️</p>
+    </header>
+
+    <!-- Timer Section -->
+    <section id="countdown">
+        <h2>Time Since We Got Together:</h2>
+        <div id="timer"></div>
+    </section>
+
+    <!-- YouTube Video -->
+    <section id="song">
+        <h2>Our Song: "Tamally Ma'ak" by Amr Diab</h2>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/EgmXTmj62ic" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </section>
+
+    <script>
+        // Set start date (February 14, 2024)
+        const startDate = new Date('2024-02-14T00:00:00');
+
+        // Function to update the elapsed time
+        function updateTimeElapsed() {
+            const now = new Date();
+            const timeDifference = now - startDate;
+
+            // Calculate days, hours, minutes, and seconds
+            const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+            // Display result on the page
+            document.getElementById('timer').innerHTML = `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
+        }
+
+        // Update the timer every second
+        setInterval(updateTimeElapsed, 1000);
+    </script>
+
+</body>
+</html>
